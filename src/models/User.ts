@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 
-export const defineUser = sequelize => {
+export const defineUser = (sequelize: any) => {
 	sequelize.define(
 		"User",
 		{

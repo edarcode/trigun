@@ -1,5 +1,5 @@
 import { Op, Sequelize } from "sequelize";
-import { defineUser } from "./models/User.js";
+import { defineUser } from "./models/User";
 
 const sequelize =
 	process.env.NODE_ENV === "production"
