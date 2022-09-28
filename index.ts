@@ -18,13 +18,10 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 import "dotenv/config";
-import db from "./src/db";
-import { PORT } from "./src/env/port";
+import { PORT } from "./src/env/server";
 import server from "./src/server";
 
 // Syncing all the models at once..
-db.conn.sync({ force: true }).then(() => {
-	server.listen(PORT, () => {
-		console.log(`Server running on port: ${PORT} 😎`); // eslint-disable-line no-console
-	});
+server.listen(PORT, () => {
+	console.log(`Server running on port: ${PORT} 😎`); // eslint-disable-line no-console
 });
