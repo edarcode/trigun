@@ -1,10 +1,10 @@
 ## Sincronizar prisma con db
 
 ```
-prisma migrate dev --name init
+npx prisma migrate dev --name init
 ```
 
-## Resetear db
+## Resetear contenido de cada tabla (db)
 
 ```
 npx prisma migrate reset

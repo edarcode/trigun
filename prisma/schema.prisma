@@ -10,28 +10,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
+enum Status {
+  emission
+  finalized
+}
+
+model Category {
   id        Int      @id @default(autoincrement())
+  name      String   @unique @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
+  animes    Anime[]
 }
 
-model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
+model Image {
+  id       Int    @id @default(autoincrement())
+  original String @unique @db.VarChar(255)
+  animeId  Int
+  anime    Anime  @relation(fields: [animeId], references: [id])
 }
 
-model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  posts   Post[]
-  profile Profile?
+model Anime {
+  id         Int        @id @default(autoincrement())
+  status     Status     @default(finalized)
+  score      Decimal
+  name       String     @unique
+  episodes   Int
+  seasons    Int
+  synopsis   String?
+  categories Category[]
+  images     Image[]
 }
