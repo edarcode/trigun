@@ -1,27 +1,11 @@
-//                       _oo0oo_
-//                      o8888888o
-//                      88" . "88
-//                      (| -_- |)
-//                      0\  =  /0
-//                    ___/`---'\___
-//                  .' \\|     |// '.
-//                 / \\|||  :  |||// \
-//                / _||||| -:- |||||- \
-//               |   | \\\  -  /// |   |
-//               | \_|  ''\---/''  |_/ |
-//               \  .-\__  '-'  ___/-. /
-//             ___'. .'  /--.--\  `. .'___
-//          ."" '<  `.___\_<|>_/___.' >' "".
-//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-//         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
-//                       `=---='
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 import "dotenv/config";
 import { PORT } from "./src/env/server";
 import server from "./src/server";
+import { updateUser } from "./src/utils/crud-users/updateUser";
 
-// Syncing all the models at once..
-server.listen(PORT, () => {
-	console.log(`Server running on port: ${PORT} 😎`); // eslint-disable-line no-console
+server.listen(PORT, async () => {
+	console.log(`Server running on port: ${PORT} 😎`);
+	const user = await updateUser();
+
+	console.dir(user, { depth: null });
 });
