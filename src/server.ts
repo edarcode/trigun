@@ -23,7 +23,6 @@ server.use((_, res, next) => {
 
 server.use("/", router);
 
-// Error catching endware.
 // server.use((err, _, res) => {
 // 	const status = err?.status || 500;
 // 	const message = err?.message || err;
