@@ -1,5 +1,7 @@
 ## Sincronizar prisma con db
 
+Migra lo seteado en prisma a la db "init" hace refencia al nombre de migración que se crea automaticamente
+
 ```
 npx prisma migrate dev --name init
 ```
