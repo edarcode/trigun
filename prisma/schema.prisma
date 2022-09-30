@@ -18,6 +18,7 @@ enum Status {
 model Category {
   id        Int      @id @default(autoincrement())
   name      String   @unique @db.VarChar(255)
+  image     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   animes    Anime[]
@@ -37,7 +38,7 @@ model Anime {
   name       String     @unique
   episodes   Int
   seasons    Int
-  synopsis   String?
+  synopsis   String
   categories Category[]
   images     Image[]
 }

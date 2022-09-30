@@ -1,4 +1,8 @@
 import { NextFunction, Request, Response } from "express";
+import {
+	CATEGORY_CREATED_ERR,
+	CATEGORY_CREATED_SUCCESS
+} from "../../../constants/msgs";
 import { createCategory } from "../../../utils/crud-category/createCategory";
 
 export const createCategoryController = async (
@@ -7,10 +11,13 @@ export const createCategoryController = async (
 	next: NextFunction
 ) => {
 	try {
-		const category = await createCategory(req.body);
-		res.json({ msg: "categoría creada correctamente", category });
+		const [, created] = await createCategory(req.body);
+		const json = {
+			msg: !created ? CATEGORY_CREATED_ERR : CATEGORY_CREATED_SUCCESS
+		};
+		const status = !created ? 400 : 201;
+		res.status(status).json(json);
 	} catch (error) {
-		console.log("asdfasdf");
 		next(error);
 	}
 };
