@@ -2,7 +2,7 @@ import { prisma } from "../../prisma";
 
 interface Dto {
 	name: string;
-	image: string;
+	img: string;
 }
 
 export const createCategory = async (dto: Dto) => {
