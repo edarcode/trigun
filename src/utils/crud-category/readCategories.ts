@@ -1,22 +1,9 @@
 import { CustomError } from "../../classes/CustomError";
 import { ERR_PAGE, NOT_FOUND } from "../../constants/msgs";
 import { prisma } from "../../prisma";
+import { ReadCategories } from "../../ts/interfaces/ReadCategories";
 
-enum Order {
-	ASC = "asc",
-	DESC = "desc"
-}
-interface OrderBy {
-	name?: Order;
-}
-interface Query {
-	name?: string;
-	page?: number;
-	perPage?: number;
-	orderBy?: OrderBy;
-}
-
-export const readCategories = async (queries: Query) => {
+export const readCategories = async (queries: ReadCategories) => {
 	const { page = 1, perPage = 2, name, orderBy } = queries;
 
 	const errPage = new CustomError({ message: ERR_PAGE, status: 400 });
