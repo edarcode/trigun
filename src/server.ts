@@ -1,5 +1,5 @@
 import cors from "cors";
-import express from "express";
+import express, { Request, Response } from "express";
 import morgan from "morgan";
 import { router } from "./routes/main.router";
 
@@ -22,12 +22,11 @@ server.use((_, res, next) => {
 });
 
 server.use("/", router);
-
-// server.use((err, _, res) => {
-// 	const status = err?.status || 500;
-// 	const message = err?.message || err;
-// 	console.error(err);
-// 	res?.status(status).send(message);
-// });
+server.use((err: TypeError, _: Request, res: Response) => {
+	const status = 500;
+	const message = err.message || err;
+	console.error(err);
+	res.status(status).json(message);
+});
 
 export default server;

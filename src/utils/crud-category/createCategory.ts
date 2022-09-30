@@ -5,7 +5,10 @@ interface Dto {
 }
 
 export const createCategory = async (dto: Dto) => {
-	const category = await prisma.category.create({ data: dto });
-
-	return category;
+	let category = await prisma.category.findUnique({
+		where: { name: dto.name }
+	});
+	if (category) return [category, false];
+	category = await prisma.category.create({ data: dto });
+	return [category, true];
 };
