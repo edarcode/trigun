@@ -9,7 +9,7 @@ export const getAllCategoriesController = async (
 	try {
 		const categories = await readCategories(req.query);
 		res.json(categories);
-	} catch (error) {
+	} catch (error: any) {
 		next(error);
 	}
 };

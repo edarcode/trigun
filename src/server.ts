@@ -1,9 +1,9 @@
 import cors from "cors";
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import morgan from "morgan";
 import { router } from "./routes/main.router";
 
-const server = express();
+export const server = express();
 
 server.use(cors());
 server.use(express.urlencoded({ extended: true, limit: "50mb" }));
@@ -22,11 +22,10 @@ server.use((_, res, next) => {
 });
 
 server.use("/", router);
-server.use((err: TypeError, _: Request, res: Response) => {
-	const status = 500;
-	const message = err.message || err;
-	console.error(err);
-	res.status(status).json(message);
-});
 
-export default server;
+server.use((error: any, _req: Request, res: Response, _next: NextFunction) => {
+	console.log(error);
+	const status = error.status || 500;
+	const message = error.message || error;
+	res.status(status).json({ msg: message });
+});

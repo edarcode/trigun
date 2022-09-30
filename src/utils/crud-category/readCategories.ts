@@ -1,3 +1,5 @@
+import { CustomError } from "../../classes/CustomError";
+import { ERR_PAGE, NOT_FOUND } from "../../constants/msgs";
 import { prisma } from "../../prisma";
 
 enum Order {
@@ -16,7 +18,10 @@ interface Query {
 
 export const readCategories = async (queries: Query) => {
 	const { page = 1, perPage = 2, name, orderBy } = queries;
-	if (page <= 0) throw TypeError("Error de página");
+
+	const errPage = new CustomError({ message: ERR_PAGE, status: 400 });
+	if (page <= 0) throw errPage;
+
 	const realPage = page - 1;
 	const where = { name: { contains: name } };
 	const filters = {
@@ -26,18 +31,22 @@ export const readCategories = async (queries: Query) => {
 		select: { id: true, name: true, img: true },
 		orderBy
 	};
-	const [categories, totalCategories] = await prisma.$transaction([
+
+	const [categories, totalRegisters] = await prisma.$transaction([
 		prisma.category.findMany(filters),
 		prisma.category.count({ where })
 	]);
-	const totalPages = Math.ceil(totalCategories / perPage);
-	if (page > totalPages) throw TypeError("Error de página");
 
-	return {
-		totalPages: Math.ceil(totalCategories / perPage),
-		page: Number(page),
+	const totalPages = Math.ceil(totalRegisters / perPage);
+	const dataCategories = {
+		totalRegisters,
+		totalPages,
 		perPage,
-		totalCategories,
+		page: Number(page),
 		categories
 	};
+
+	const err404 = new CustomError({ message: NOT_FOUND, status: 404 });
+	if (!categories.length) throw err404;
+	return dataCategories;
 };
