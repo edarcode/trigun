@@ -1,15 +1,11 @@
 import { prisma } from "../../prisma";
+import { Create } from "../../ts/interfaces/categories/Create";
 
-interface Dto {
-	name: string;
-	img: string;
-}
-
-export const createCategory = async (dto: Dto) => {
+export const createCategory = async (props: Create) => {
 	let category = await prisma.category.findUnique({
-		where: { name: dto.name }
+		where: { name: props.name }
 	});
 	if (category) return [category, false];
-	category = await prisma.category.create({ data: dto });
+	category = await prisma.category.create({ data: props });
 	return [category, true];
 };

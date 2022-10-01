@@ -1,6 +1,6 @@
-import { Order } from "../enums/Order";
+import { Order } from "../../enums/Order";
 
-export interface ReadCategories {
+export interface Read {
 	name?: string;
 	page?: number;
 	perPage?: number;

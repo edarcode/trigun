@@ -1,11 +1,7 @@
-import { NextFunction, Request, Response } from "express";
+import { Route } from "../../../ts/interfaces/controllers/Route";
 import { readCategories } from "../../../utils/crud-category/readCategories";
 
-export const getAllCategoriesController = async (
-	req: Request,
-	res: Response,
-	next: NextFunction
-) => {
+export const getAllCategoriesController: Route = async (req, res, next) => {
 	try {
 		const categories = await readCategories(req.query);
 		res.json(categories);

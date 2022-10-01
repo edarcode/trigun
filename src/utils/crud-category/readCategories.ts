@@ -1,10 +1,10 @@
 import { CustomError } from "../../classes/CustomError";
 import { ERR_PAGE, NOT_FOUND } from "../../constants/msgs";
 import { prisma } from "../../prisma";
-import { ReadCategories } from "../../ts/interfaces/ReadCategories";
+import { Read } from "../../ts/interfaces/categories/Read";
 
-export const readCategories = async (queries: ReadCategories) => {
-	const { page = 1, perPage = 2, name, orderBy } = queries;
+export const readCategories = async (props: Read) => {
+	const { page = 1, perPage = 2, name, orderBy } = props;
 
 	const errPage = new CustomError({ message: ERR_PAGE, status: 400 });
 	if (page <= 0) throw errPage;
