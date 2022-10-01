@@ -1,4 +1,4 @@
-import { Route } from "../../../ts/interfaces/controllers/Route";
+import { Route } from "../../../ts/controllers/interfaces/Route";
 import { readCategories } from "../../../utils/crud-category/readCategories";
 
 export const readAllCategoriesController: Route = async (req, res, next) => {

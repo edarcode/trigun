@@ -1,5 +1,5 @@
 import { prisma } from "../../prisma";
-import { Create } from "../../ts/interfaces/categories/Create";
+import { Create } from "../../ts/crud-category/interfaces/Create";
 
 export const createCategory = async (props: Create) => {
 	let category = await prisma.category.findUnique({

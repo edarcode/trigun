@@ -1,7 +1,7 @@
 import { CustomError } from "../../classes/CustomError";
 import { NOT_FOUND, REQUIRED_ID } from "../../constants/msgs";
 import { prisma } from "../../prisma";
-import { Update } from "../../ts/interfaces/categories/Update";
+import { Update } from "../../ts/crud-category/interfaces/Update";
 
 export const updateCategory = async (props: Update) => {
 	const { id, img, name } = props;

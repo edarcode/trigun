@@ -1,5 +1,6 @@
 import { UPDATE_SUCCESS } from "../../../constants/msgs";
-import { Route } from "../../../ts/interfaces/controllers/Route";
+import { Route } from "../../../ts/controllers/interfaces/Route";
+
 import { updateCategory } from "../../../utils/crud-category/updateCategory";
 
 export const updateCategoryController: Route = async (req, res, next) => {

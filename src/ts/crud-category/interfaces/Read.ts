@@ -1,4 +1,4 @@
-import { Order } from "../../enums/Order";
+import { Order } from "../../common/enums/Order";
 
 export interface Read {
 	name?: string;

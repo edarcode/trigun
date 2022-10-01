@@ -1,4 +1,4 @@
-import { Error } from "../../ts/interfaces/controllers/Error";
+import { Error } from "../../ts/controllers/interfaces/Error";
 
 export const errors: Error = (error, _req, res, _next) => {
 	console.log(error);

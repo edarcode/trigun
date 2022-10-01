@@ -3,7 +3,7 @@ import {
 	CATEGORY_CREATED_ERR,
 	CATEGORY_CREATED_SUCCESS
 } from "../../../constants/msgs";
-import { Route } from "../../../ts/interfaces/controllers/Route";
+import { Route } from "../../../ts/controllers/interfaces/Route";
 
 import { createCategory } from "../../../utils/crud-category/createCategory";
 
