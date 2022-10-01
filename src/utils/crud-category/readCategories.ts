@@ -11,16 +11,21 @@ export const readCategories = async (props: Read) => {
 
 	const realPage = page - 1;
 	const where = { name: { contains: name } };
-	const filters = {
-		skip: realPage * perPage,
-		take: perPage,
-		where,
-		select: { id: true, name: true, img: true },
-		orderBy
-	};
+	// const filters = ;
 
 	const [categories, totalRegisters] = await prisma.$transaction([
-		prisma.category.findMany(filters),
+		prisma.category.findMany({
+			skip: realPage * perPage,
+			take: perPage,
+			where,
+			orderBy,
+			select: {
+				id: true,
+				name: true,
+				img: true,
+				animes: { select: { id: true, name: true } }
+			}
+		}),
 		prisma.category.count({ where })
 	]);
 

@@ -40,7 +40,7 @@ CREATE TABLE "User" (
 
 -- CreateTable
 CREATE TABLE "Opinion" (
-    "comment" TEXT NOT NULL,
+    "opinion" TEXT NOT NULL,
     "userId" INTEGER NOT NULL,
     "animeId" INTEGER NOT NULL,
 
@@ -56,6 +56,7 @@ CREATE TABLE "Anime" (
     "episodes" INTEGER NOT NULL,
     "seasons" INTEGER NOT NULL,
     "synopsis" TEXT NOT NULL,
+    "creatorReview" TEXT NOT NULL,
 
     CONSTRAINT "Anime_pkey" PRIMARY KEY ("id")
 );
