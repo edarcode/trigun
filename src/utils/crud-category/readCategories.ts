@@ -1,13 +1,13 @@
 import { CustomError } from "../../classes/CustomError";
 import { ERR_PAGE, NOT_FOUND } from "../../constants/msgs";
+import { CATEGORIES } from "../../constants/perPage";
 import { prisma } from "../../prisma";
 import { Read } from "../../ts/interfaces/categories/Read";
 
 export const readCategories = async (props: Read) => {
-	const { page = 1, perPage = 2, name, orderBy } = props;
+	const { page = 1, perPage = CATEGORIES, name, orderBy } = props;
 
-	const errPage = new CustomError({ message: ERR_PAGE, status: 400 });
-	if (page <= 0) throw errPage;
+	if (page <= 0) throw new CustomError({ message: ERR_PAGE, status: 400 });
 
 	const realPage = page - 1;
 	const where = { name: { contains: name } };
@@ -24,16 +24,15 @@ export const readCategories = async (props: Read) => {
 		prisma.category.count({ where })
 	]);
 
+	if (!categories.length)
+		throw new CustomError({ message: NOT_FOUND, status: 404 });
+
 	const totalPages = Math.ceil(totalRegisters / perPage);
-	const dataCategories = {
+	return {
 		totalRegisters,
 		totalPages,
 		perPage,
 		page: Number(page),
 		categories
 	};
-
-	const err404 = new CustomError({ message: NOT_FOUND, status: 404 });
-	if (!categories.length) throw err404;
-	return dataCategories;
 };
