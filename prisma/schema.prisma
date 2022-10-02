@@ -61,13 +61,13 @@ model Opinion {
 model Anime {
   id            Int        @id @default(autoincrement())
   status        Status     @default(finalized)
-  score         Decimal
-  name          String     @unique
-  episodes      Int
+  score         Decimal    @default(0)
   seasons       Int
+  episodes      Int
+  name          String     @unique
   synopsis      String
   creatorReview String
-  categories    Category[]
   images        Image[]
+  categories    Category[]
   users         Opinion[]
 }

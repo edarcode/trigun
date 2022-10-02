@@ -1,14 +1,10 @@
-interface DtoConstructor {
-	message: string;
-	status: number;
-}
+import { InitCustomError } from "../ts/constructors/interfaces/InitCustomError";
 
 export class CustomError extends Error {
 	status;
-	constructor({ message, status = 500 }: DtoConstructor) {
-		// Pasa los argumentos restantes (incluidos los específicos del proveedor) al constructor padre
+	constructor(props: InitCustomError) {
+		const { message, status = 500 } = props;
 		super();
-		// Mantiene un seguimiento adecuado de la pila para el lugar donde se lanzó nuestro error (solo disponible en V8)
 		if (Error.captureStackTrace) {
 			Error.captureStackTrace(this, CustomError);
 		}

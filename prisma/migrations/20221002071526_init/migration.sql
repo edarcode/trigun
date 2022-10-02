@@ -51,10 +51,10 @@ CREATE TABLE "Opinion" (
 CREATE TABLE "Anime" (
     "id" SERIAL NOT NULL,
     "status" "Status" NOT NULL DEFAULT 'finalized',
-    "score" DECIMAL(65,30) NOT NULL,
-    "name" TEXT NOT NULL,
-    "episodes" INTEGER NOT NULL,
+    "score" DECIMAL(65,30) NOT NULL DEFAULT 0,
     "seasons" INTEGER NOT NULL,
+    "episodes" INTEGER NOT NULL,
+    "name" TEXT NOT NULL,
     "synopsis" TEXT NOT NULL,
     "creatorReview" TEXT NOT NULL,
 
