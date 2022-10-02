@@ -1,5 +1,5 @@
 import { CustomError } from "../../classes/CustomError";
-import { NOT_FOUND, REQUIRED_ID } from "../../constants/msgs";
+import { REQUIRED_ID } from "../../constants/msgs";
 import { prisma } from "../../prisma";
 import { Update } from "../../ts/crud-category/interfaces/Update";
 
@@ -10,8 +10,6 @@ export const updateCategory = async (props: Update) => {
 		where: { id },
 		data: { img, name }
 	});
-
-	if (!category) throw new CustomError({ message: NOT_FOUND, status: 404 });
 
 	return category;
 };
