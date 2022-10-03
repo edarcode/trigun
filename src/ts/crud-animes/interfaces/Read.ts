@@ -1,3 +1,4 @@
+import { CategoryId } from "../../common/interfaces/CategoryId";
 import { Status } from "../enums/Status";
 
 export interface Read {
@@ -8,5 +9,5 @@ export interface Read {
 	seasons?: number;
 	episodes?: number;
 	name?: string;
-	categoryId?: number;
+	categories?: CategoryId[];
 }

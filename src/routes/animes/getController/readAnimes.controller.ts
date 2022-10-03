@@ -1,9 +1,14 @@
 import { Route } from "../../../ts/controllers/interfaces/Route";
+import { formatCategories } from "../../../utils/common/formatCategories";
 import { readAnimes } from "../../../utils/crud-anime/readAnimes";
 
 export const readAnimesController: Route = async (req, res, next) => {
 	try {
-		const animes = await readAnimes(req.query);
+		const { categories } = req.query;
+		const animes = await readAnimes({
+			...req.query,
+			categories: formatCategories(categories)
+		});
 		res.status(200).json(animes);
 	} catch (error) {
 		next(error);

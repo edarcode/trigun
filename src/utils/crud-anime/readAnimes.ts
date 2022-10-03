@@ -12,7 +12,7 @@ export const readAnimes = async (props: Read) => {
 		status,
 		seasons,
 		episodes,
-		categoryId,
+		categories,
 		name,
 		score
 	} = props;
@@ -26,7 +26,7 @@ export const readAnimes = async (props: Read) => {
 		score: { gt: Number(score) || undefined },
 		categories: {
 			some: {
-				id: Number(categoryId) || undefined
+				OR: categories
 			}
 		}
 	};
