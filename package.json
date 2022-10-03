@@ -4,8 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"tsc": "tsc",
 		"start": "node ./dist/index.js",
+		"tsc": "tsc",
 		"dev": "tsnd --exit-child --clear index.ts",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"format": "prettier --write .",
