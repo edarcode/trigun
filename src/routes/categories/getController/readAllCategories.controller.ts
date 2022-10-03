@@ -5,7 +5,7 @@ export const readAllCategoriesController: Route = async (req, res, next) => {
 	try {
 		const categories = await readCategories(req.query);
 		res.json(categories);
-	} catch (error: any) {
+	} catch (error) {
 		next(error);
 	}
 };

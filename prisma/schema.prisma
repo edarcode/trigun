@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Status {
+enum StatusAnime {
   emission
   finalized
 }
@@ -59,12 +59,12 @@ model Opinion {
 }
 
 model Anime {
-  id            Int        @id @default(autoincrement())
-  status        Status     @default(finalized)
-  score         Decimal    @default(0)
+  id            Int         @id @default(autoincrement())
+  status        StatusAnime @default(finalized)
+  score         Decimal     @default(0)
   seasons       Int
   episodes      Int
-  name          String     @unique
+  name          String      @unique
   synopsis      String
   creatorReview String
   images        Image[]
