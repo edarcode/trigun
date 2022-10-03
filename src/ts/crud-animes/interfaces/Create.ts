@@ -5,7 +5,7 @@ export interface Create {
 	seasons: number;
 	episodes: number;
 	synopsis: string;
-	creatorReview: string;
+	edarReview: string;
 	images: Image;
 	categories: CategoryId[];
 }

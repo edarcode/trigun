@@ -4,15 +4,8 @@ import { prisma } from "../../prisma";
 import { Create } from "../../ts/crud-animes/interfaces/Create";
 
 export const createAnime = async (props: Create) => {
-	const {
-		creatorReview,
-		episodes,
-		images,
-		name,
-		seasons,
-		synopsis,
-		categories
-	} = props;
+	const { edarReview, episodes, images, name, seasons, synopsis, categories } =
+		props;
 
 	if (!categories)
 		throw new CustomError({ message: REQUIRED_CATEGORIES, status: 400 });
@@ -20,11 +13,12 @@ export const createAnime = async (props: Create) => {
 
 	const anime = await prisma.anime.create({
 		data: {
-			creatorReview,
+			score: 0,
+			seasons,
 			episodes,
 			name,
-			seasons,
 			synopsis,
+			edarReview,
 			images: { create: images },
 			categories: { connect: categories }
 		}

@@ -21,3 +21,12 @@ console.dir(allUsers, { depth: null })
 ## API prisma client
 
 https://www.prisma.io/docs/concepts/components/prisma-client
+
+## Operadores
+
+- gt >
+- gte >=
+- lt <
+- lte <=
+- equals ===
+- contains contiene en cualquier sitio

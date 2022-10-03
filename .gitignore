@@ -1,3 +1,6 @@
+# prisma migrate
+migrations
+
 # Logs
 logs
 *.log
