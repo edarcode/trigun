@@ -31,36 +31,36 @@ export const readAnimes = async (props: Read) => {
 		}
 	};
 
-	const [animes, totalRegisters] = await prisma.$transaction([
-		prisma.anime.findMany({
-			skip: realPage * perPage,
-			take: perPage,
-			where,
-			select: {
-				id: true,
-				status: true,
-				score: true,
-				seasons: true,
-				episodes: true,
-				name: true,
-				synopsis: true,
-				edarReview: true,
-				categories: { select: { id: true, name: true } },
-				images: { select: { id: true, original: true } }
-			}
-		}),
-		prisma.anime.count({ where })
-	]);
+	const animes = await prisma.anime.findMany({
+		skip: realPage * perPage,
+		take: perPage,
+		where,
+		select: {
+			id: true,
+			status: true,
+			score: true,
+			seasons: true,
+			episodes: true,
+			name: true,
+			synopsis: true,
+			edarReview: true,
+			categories: { select: { id: true, name: true } },
+			images: { select: { id: true, original: true } }
+		}
+	});
 
 	if (!animes.length)
 		throw new CustomError({ message: NOT_FOUND, status: 404 });
 
+	const totalRegisters = await prisma.anime.count({ where });
+
 	const totalPages = Math.ceil(totalRegisters / perPage);
 	return {
+		querySubject: "animes",
 		totalRegisters,
 		totalPages,
-		perPage,
-		page: Number(page),
-		animes
+		currentPage: Number(page),
+		registersPerPage: perPage,
+		registers: animes
 	};
 };

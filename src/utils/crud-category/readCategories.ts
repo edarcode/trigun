@@ -13,31 +13,31 @@ export const readCategories = async (props: Read) => {
 	const where = { name: { contains: name } };
 	// const filters = ;
 
-	const [categories, totalRegisters] = await prisma.$transaction([
-		prisma.category.findMany({
-			skip: realPage * perPage,
-			take: perPage,
-			where,
-			orderBy,
-			select: {
-				id: true,
-				name: true,
-				img: true,
-				animes: { select: { id: true, name: true } }
-			}
-		}),
-		prisma.category.count({ where })
-	]);
+	const categories = await prisma.category.findMany({
+		skip: realPage * perPage,
+		take: perPage,
+		where,
+		orderBy,
+		select: {
+			id: true,
+			name: true,
+			img: true,
+			animes: { select: { id: true, name: true } }
+		}
+	});
 
 	if (!categories.length)
 		throw new CustomError({ message: NOT_FOUND, status: 404 });
 
+	const totalRegisters = await prisma.category.count({ where });
+
 	const totalPages = Math.ceil(totalRegisters / perPage);
 	return {
+		querySubject: "categories",
 		totalRegisters,
 		totalPages,
-		perPage,
-		page: Number(page),
-		categories
+		currentPage: Number(page),
+		registersperPage: perPage,
+		registers: categories
 	};
 };
