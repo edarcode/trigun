@@ -21,8 +21,8 @@ export const readCategories = async (props: Read) => {
 		select: {
 			id: true,
 			name: true,
-			img: true,
-			animes: { select: { id: true, name: true } }
+			img: true
+			// animes: { select: { id: true, name: true } }
 		}
 	});
 
@@ -37,7 +37,7 @@ export const readCategories = async (props: Read) => {
 		totalRegisters,
 		totalPages,
 		currentPage: Number(page),
-		registersperPage: perPage,
+		registersPerPage: perPage,
 		registers: categories
 	};
 };

@@ -31,7 +31,7 @@ model Category {
 
 model Image {
   id       Int    @id @default(autoincrement())
-  original String @unique @db.VarChar(255)
+  original String @db.VarChar(255)
   animeId  Int
   anime    Anime  @relation(fields: [animeId], references: [id])
 }
