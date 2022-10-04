@@ -6,9 +6,9 @@
 	"scripts": {
 		"start": "node ./dist/index.js",
 		"tsc": "tsc",
-		"restart": "npm run reset && npm run fill",
-		"reset": "clear && npx prisma migrate reset --force",
-		"fill": "clear && tsnd --exit-child ./src/utils/fill-db/fillDb.ts",
+		"db": "npm run db-reset && npm run db-fill",
+		"db-reset": "clear && npx prisma migrate reset --force",
+		"db-fill": "clear && tsnd --exit-child ./src/utils/fill-db/fillDb.ts",
 		"migrate": "npx prisma migrate dev --name init",
 		"dev": "tsnd --exit-child --clear index.ts",
 		"test": "echo \"Error: no test specified\" && exit 1",

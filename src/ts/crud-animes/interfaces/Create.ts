@@ -1,15 +1,12 @@
-import { Image } from "@prisma/client";
+import { Status } from "../enums/Status";
 
 export interface Create {
 	name: string;
+	status?: Status;
 	seasons: number;
 	episodes: number;
 	synopsis: string;
 	edarReview: string;
-	images: Image;
-	categories: CategoryId[];
-}
-
-interface CategoryId {
-	id: number;
+	images: string[];
+	categories: number[];
 }
