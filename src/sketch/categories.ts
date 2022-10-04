@@ -16,7 +16,7 @@ export const categories = [
 		img: "https://res.cloudinary.com/dvmsllkkg/image/upload/v1664802914/trigun/terror_gu8fzi.webp"
 	},
 	{
-		name: "Aventuras",
+		name: "aventuras",
 		img: "https://res.cloudinary.com/dvmsllkkg/image/upload/v1664803229/trigun/adventure_l9nbt9.webp"
 	}
 ];
