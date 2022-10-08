@@ -3,6 +3,8 @@ import { ERR_PAGE, NOT_FOUND } from "../../constants/msgs";
 import { CATEGORIES } from "../../constants/perPage";
 import { prisma } from "../../prisma";
 import { PropsReadCategories } from "../../types/crud-category/ReadCategories";
+import { CategorySelect } from "../../types/prisma/category/CategorySelect";
+import { CategoryWhere } from "../../types/prisma/category/CategoryWhere";
 
 export const readCategories = async (props: PropsReadCategories) => {
 	const { page = 1, perPage = CATEGORIES, name, orderBy } = props;
@@ -10,19 +12,17 @@ export const readCategories = async (props: PropsReadCategories) => {
 	if (page <= 0) throw new CustomError({ message: ERR_PAGE, status: 400 });
 
 	const realPage = page - 1;
-	const where = { name: { contains: name } };
-	// const filters = ;
+	const where: CategoryWhere = {
+		name: { contains: name, mode: "insensitive" }
+	};
+	const select: CategorySelect = { id: true, name: true, img: true };
 
 	const categories = await prisma.category.findMany({
 		skip: realPage * perPage,
 		take: perPage,
-		where,
 		orderBy,
-		select: {
-			id: true,
-			name: true,
-			img: true
-		}
+		where,
+		select
 	});
 
 	if (!categories.length)
