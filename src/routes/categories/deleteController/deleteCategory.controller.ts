@@ -4,7 +4,7 @@ import {
 	CATEGORY_REMOVED_SUCCESS,
 	NOT_FOUND_ID
 } from "../../../constants/msgs";
-import { Route } from "../../../ts/controllers/interfaces/Route";
+import { Route } from "../../../types/controllers/Route";
 import { deleteCategory } from "../../../utils/crud-category/deleteCategory";
 
 export const deleteCategoryController: Route = async (req, res, next) => {

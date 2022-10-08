@@ -2,7 +2,7 @@ import { CustomError } from "../../classes/CustomError";
 import { ERR_PAGE, NOT_FOUND } from "../../constants/msgs";
 import { CATEGORIES } from "../../constants/perPage";
 import { prisma } from "../../prisma";
-import { PropsReadCategories } from "../../ts/crud-category/ReadCategories";
+import { PropsReadCategories } from "../../types/crud-category/ReadCategories";
 
 export const readCategories = async (props: PropsReadCategories) => {
 	const { page = 1, perPage = CATEGORIES, name, orderBy } = props;

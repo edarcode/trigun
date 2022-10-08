@@ -1,6 +1,6 @@
-import { Status } from "../enums/Status";
+import { Status } from "../enums/StatusAnime";
 
-export interface Create {
+export interface PropsCreateAnime {
 	name: string;
 	status?: Status;
 	seasons: number;

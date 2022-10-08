@@ -1,7 +1,7 @@
 import { CustomError } from "../../../classes/CustomError";
 import { P2025 } from "../../../constants/dbErrorCodes";
 import { NOT_FOUND_ID, UPDATE_SUCCESS } from "../../../constants/msgs";
-import { Route } from "../../../ts/controllers/interfaces/Route";
+import { Route } from "../../../types/controllers/Route";
 import { updateCategory } from "../../../utils/crud-category/updateCategory";
 
 export const updateCategoryController: Route = async (req, res, next) => {

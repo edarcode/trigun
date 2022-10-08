@@ -1,4 +1,4 @@
-import { InitCustomError } from "../ts/constructors/interfaces/InitCustomError";
+import { InitCustomError } from "../types/constructors/InitCustomError";
 
 export class CustomError extends Error {
 	status;

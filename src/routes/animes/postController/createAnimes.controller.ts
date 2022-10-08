@@ -4,7 +4,7 @@ import {
 	ALREADY_EXIST_ANIME,
 	ANIME_CREATED_SUCCESS
 } from "../../../constants/msgs";
-import { Route } from "../../../ts/controllers/interfaces/Route";
+import { Route } from "../../../types/controllers/Route";
 import { createAnime } from "../../../utils/crud-anime/createAnime";
 
 export const createAnimeController: Route = async (req, res, next) => {

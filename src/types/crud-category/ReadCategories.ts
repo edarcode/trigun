@@ -1,4 +1,4 @@
-import { Order } from "../common/enums/Order";
+import { Order } from "../enums/Order";
 
 export interface PropsReadCategories {
 	name?: string;

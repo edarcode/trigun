@@ -3,9 +3,9 @@ import { CustomError } from "../../classes/CustomError";
 import { NOT_FOUND } from "../../constants/msgs";
 import { ANIMES } from "../../constants/perPage";
 import { prisma } from "../../prisma";
-import { Read } from "../../ts/crud-animes/interfaces/Read";
+import { PropsReadAnimes } from "../../types/crud-animes/ReadAnimes";
 
-export const readAnimes = async (props: Read) => {
+export const readAnimes = async (props: PropsReadAnimes) => {
 	const {
 		page = 1,
 		perPage = ANIMES,

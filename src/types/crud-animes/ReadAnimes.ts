@@ -1,6 +1,6 @@
-import { Status } from "../enums/Status";
+import { Status } from "../enums/StatusAnime";
 
-export interface Read {
+export interface PropsReadAnimes {
 	page?: number;
 	perPage?: number;
 	status?: Status;

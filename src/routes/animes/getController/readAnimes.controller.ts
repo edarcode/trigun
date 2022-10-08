@@ -1,4 +1,4 @@
-import { Route } from "../../../ts/controllers/interfaces/Route";
+import { Route } from "../../../types/controllers/Route";
 import { formatCategories } from "../../../utils/common/formatCategories";
 import { readAnimes } from "../../../utils/crud-anime/readAnimes";
 

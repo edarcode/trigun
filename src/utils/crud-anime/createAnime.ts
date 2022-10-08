@@ -1,9 +1,9 @@
 import { CustomError } from "../../classes/CustomError";
 import { REQUIRED_CATEGORIES, REQUIRED_IMAGES } from "../../constants/msgs";
 import { prisma } from "../../prisma";
-import { Create } from "../../ts/crud-animes/interfaces/Create";
+import { PropsCreateAnime } from "../../types/crud-animes/CreateAnime";
 
-export const createAnime = async (props: Create) => {
+export const createAnime = async (props: PropsCreateAnime) => {
 	const {
 		edarReview,
 		episodes,
