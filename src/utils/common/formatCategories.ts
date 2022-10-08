@@ -1,4 +1,4 @@
-import { Query } from "../../ts/common/types/Query";
+import { Query } from "../../ts/express/types/Query";
 
 export const formatCategories = (categories: Query) => {
 	if (!categories) return;

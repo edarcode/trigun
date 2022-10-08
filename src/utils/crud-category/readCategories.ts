@@ -2,9 +2,9 @@ import { CustomError } from "../../classes/CustomError";
 import { ERR_PAGE, NOT_FOUND } from "../../constants/msgs";
 import { CATEGORIES } from "../../constants/perPage";
 import { prisma } from "../../prisma";
-import { Read } from "../../ts/crud-category/interfaces/Read";
+import { PropsReadCategories } from "../../ts/crud-category/ReadCategories";
 
-export const readCategories = async (props: Read) => {
+export const readCategories = async (props: PropsReadCategories) => {
 	const { page = 1, perPage = CATEGORIES, name, orderBy } = props;
 
 	if (page <= 0) throw new CustomError({ message: ERR_PAGE, status: 400 });
@@ -22,7 +22,6 @@ export const readCategories = async (props: Read) => {
 			id: true,
 			name: true,
 			img: true
-			// animes: { select: { id: true, name: true } }
 		}
 	});
 

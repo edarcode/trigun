@@ -1,6 +1,6 @@
-import { Order } from "../../common/enums/Order";
+import { Order } from "../common/enums/Order";
 
-export interface Read {
+export interface PropsReadCategories {
 	name?: string;
 	page?: number;
 	perPage?: number;

@@ -1,9 +1,9 @@
 import { CustomError } from "../../classes/CustomError";
 import { CATEGORY_CREATED_ERR } from "../../constants/msgs";
 import { prisma } from "../../prisma";
-import { Create } from "../../ts/crud-category/interfaces/Create";
+import { PropsCreateCategory } from "../../ts/crud-category/CreateCategory";
 
-export const createCategory = async (props: Create) => {
+export const createCategory = async (props: PropsCreateCategory) => {
 	const category = await prisma.category.findUnique({
 		where: { name: props.name }
 	});
