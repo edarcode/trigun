@@ -1,9 +1,9 @@
-import { Prisma } from "@prisma/client";
 import { CustomError } from "../../classes/CustomError";
 import { NOT_FOUND } from "../../constants/msgs";
 import { ANIMES } from "../../constants/perPage";
 import { prisma } from "../../prisma";
 import { PropsReadAnimes } from "../../types/crud-animes/ReadAnimes";
+import { AnimeWhere } from "../../types/prisma/anime/AnimeWhere";
 
 export const readAnimes = async (props: PropsReadAnimes) => {
 	const {
@@ -16,9 +16,9 @@ export const readAnimes = async (props: PropsReadAnimes) => {
 		name,
 		score
 	} = props;
-	const realPage = page - 1;
 
-	const where: Prisma.AnimeWhereInput = {
+	const realPage = page - 1;
+	const where: AnimeWhere = {
 		status,
 		seasons,
 		episodes,
@@ -26,7 +26,7 @@ export const readAnimes = async (props: PropsReadAnimes) => {
 		score: { gt: Number(score) || undefined },
 		categories: {
 			some: {
-				OR: categories
+				OR: categories?.map(id => ({ id }))
 			}
 		}
 	};

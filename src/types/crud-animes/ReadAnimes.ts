@@ -8,9 +8,5 @@ export interface PropsReadAnimes {
 	seasons?: number;
 	episodes?: number;
 	name?: string;
-	categories?: CategoryId[];
-}
-
-interface CategoryId {
-	id: number;
+	categories?: number[];
 }
