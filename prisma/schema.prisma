@@ -37,41 +37,40 @@ model Image {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  active    Boolean   @default(true)
-  verify    Boolean   @default(false)
-  role      Role      @default(client)
-  username  String    @unique @db.VarChar(255)
-  email     String    @unique
-  password  String
-  img       String?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  animes    Opinion[]
+  id            Int       @id @default(autoincrement())
+  active        Boolean   @default(true)
+  verify        Boolean   @default(false)
+  role          Role      @default(client)
+  username      String    @unique @db.VarChar(255)
+  email         String    @unique
+  password      String
+  img           String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  animeOpinions Opinion[]
 }
 
 model Opinion {
+  id      Int    @id @default(autoincrement())
   opinion String
   user    User   @relation(fields: [userId], references: [id])
   userId  Int
   anime   Anime  @relation(fields: [animeId], references: [id])
   animeId Int
-
-  @@id([userId, animeId])
 }
 
 model Anime {
-  id         Int         @id @default(autoincrement())
-  status     StatusAnime @default(finalized)
-  score      Float       @default(0)
-  seasons    Int
-  episodes   Int
-  name       String      @unique
-  synopsis   String
-  edarReview String
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
-  images     Image[]
-  categories Category[]
-  users      Opinion[]
+  id          Int         @id @default(autoincrement())
+  status      StatusAnime @default(finalized)
+  score       Float       @default(0)
+  seasons     Int
+  episodes    Int
+  name        String      @unique
+  synopsis    String
+  edarReview  String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  images      Image[]
+  categories  Category[]
+  userReviews Opinion[]
 }

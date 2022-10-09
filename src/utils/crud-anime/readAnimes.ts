@@ -45,7 +45,8 @@ export const readAnimes = async (props: PropsReadAnimes) => {
 			synopsis: true,
 			edarReview: true,
 			categories: { select: { id: true, name: true } },
-			images: { select: { id: true, original: true } }
+			images: { select: { id: true, original: true } },
+			userReviews: { select: { id: true, opinion: true } }
 		}
 	});
 
