@@ -5,6 +5,7 @@ export const ERR_PAGE = "La página debe ser mayor a 0";
 export const NOT_FOUND = "No existe ningún registro con los datos enviados";
 export const REQUIRED_ID = "Requiere un Id";
 export const UPDATE_SUCCESS = "Recurso actualizado correctamente";
+export const DELETE_SUCCESS = "Recurso eliminado correctamente";
 export const CATEGORY_REMOVED_SUCCESS = "Categoría eliminada correctamente";
 export const ALREADY_EXIST_ANIME = "Ya existe este anime en la base de datos";
 export const REQUIRED_CATEGORIES = "Se requiere al menos 1 categoría";
