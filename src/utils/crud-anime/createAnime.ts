@@ -28,7 +28,7 @@ export const createAnime = async (props: PropsCreateAnime) => {
 			name,
 			synopsis,
 			edarReview,
-			images: { create: images.map(original => ({ original })) },
+			images: { create: images?.map(original => ({ original })) },
 			categories: { connect: categories.map(id => ({ id })) }
 		}
 	});

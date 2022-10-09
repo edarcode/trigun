@@ -1,8 +1,8 @@
-import { Status } from "../enums/StatusAnime";
+import { StatusAnime } from "@prisma/client";
 
 export interface PropsCreateAnime {
 	name: string;
-	status?: Status;
+	status?: StatusAnime;
 	seasons: number;
 	episodes: number;
 	synopsis: string;
