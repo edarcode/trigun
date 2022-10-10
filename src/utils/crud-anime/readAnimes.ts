@@ -37,16 +37,10 @@ export const readAnimes = async (props: PropsReadAnimes) => {
 		where,
 		select: {
 			id: true,
-			status: true,
 			score: true,
-			seasons: true,
-			episodes: true,
 			name: true,
-			synopsis: true,
-			edarReview: true,
-			categories: { select: { id: true, name: true } },
 			images: { select: { id: true, original: true } },
-			userReviews: { select: { id: true, opinion: true } }
+			synopsis: true
 		}
 	});
 
