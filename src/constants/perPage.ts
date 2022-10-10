@@ -1,2 +1,2 @@
-export const CATEGORIES = 3;
+export const CATEGORIES = 10;
 export const ANIMES = 2;
