@@ -12,5 +12,6 @@ export const ALREADY_EXIST_ANIME = "Ya existe este anime en la base de datos";
 export const REQUIRED_CATEGORIES = "Se requiere al menos 1 categoría";
 export const REQUIRED_IMAGES = "Se requiere al menos 1 img";
 export const DATA_IS_MISSING = "Faltan datos";
+export const ERR_QUERY = "Existe un err en las queries";
 export const VIRIFY_EMAIL =
 	"Verifique su cuenta dándo click al link enviado a su email";
