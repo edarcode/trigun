@@ -1,10 +1,8 @@
 import { Router } from "express";
-import { animes } from "./animes/animes.router";
-import { categories } from "./categories/categories.router";
-import { users } from "./users/users.router";
+import { admin } from "./admin/admin.router";
+import { client } from "./client/client.router";
 
 export const router = Router();
 
-router.use("/users", users);
-router.use("/categories", categories);
-router.use("/animes", animes);
+router.use("/admin", admin);
+router.use("/client", client);
