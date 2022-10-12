@@ -5,30 +5,21 @@ import { calcTypeof } from "./calcTypeof";
 export const validateKeysDto = (dto: object, rules: Rules[]) => {
 	const arrDto = Object.entries(dto);
 
-	for (let i = 0; i < rules.length; i++) {
-		const dataErr = rules[i];
-		const { key, msg, status, type, required = true } = dataErr;
-		const REQUIRE_KEY = `Falta el ${key}`;
-		const REQUIRE_TYPE = `${key} debe ser de tipo ${type}`;
+	for (let i = 0; i < arrDto.length; i++) {
+		const [keyDto, valueDto] = arrDto[i];
+		const ruleDto = rules.find(rule => rule.key === keyDto);
 
-		const itemDto = arrDto.find(item => item[0] === key);
-		if (required) {
-			if (!itemDto || !itemDto[1])
-				throw new CustomError({
-					message: msg || REQUIRE_KEY,
-					status: status || 400
-				});
+		const ERR_KEY = `${keyDto} no valida`;
+		if (!ruleDto || !valueDto)
+			throw new CustomError({ message: ERR_KEY, status: 400 });
 
-			if (calcTypeof(itemDto[1]) !== type)
+		const ERR_TYPE = `${ruleDto.key} debe ser de tipo ${ruleDto.type}`;
+
+		if (ruleDto.required) {
+			if (calcTypeof(valueDto) !== ruleDto.type)
 				throw new CustomError({
-					message: msg || REQUIRE_TYPE,
-					status: status || 400
-				});
-		} else {
-			if (itemDto && calcTypeof(itemDto[1]) !== type)
-				throw new CustomError({
-					message: msg || REQUIRE_TYPE,
-					status: status || 400
+					message: ruleDto.msg || ERR_TYPE,
+					status: ruleDto.status || 400
 				});
 		}
 	}
