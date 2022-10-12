@@ -1,14 +1,14 @@
 import { Route } from "../../../types/controllers/Route";
-import { TypeData } from "../../../types/validate-dto/ValidateStrictBody";
-import { validateStrictBody } from "../../../utils/validate-dto/body/validateStrictBody";
+import { Rules, TypeData } from "../../../types/validate-dto/ValidateDto";
+import { validateDto } from "../../../utils/validate-dto/validateDto";
 
 export const validateDtoCreateCategory: Route = (req, _, next) => {
 	try {
-		const rules = [
+		const rules: Rules[] = [
 			{ key: "name", type: TypeData.string },
 			{ key: "img", type: TypeData.string }
 		];
-		validateStrictBody({ dto: req.body, len: 2, rules });
+		validateDto({ dto: req.body, rules });
 		next();
 	} catch (error) {
 		next(error);
