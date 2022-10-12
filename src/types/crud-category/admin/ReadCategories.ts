@@ -4,9 +4,9 @@ export interface PropsReadCategories {
 	name?: string;
 	page?: number;
 	perPage?: number;
-	orderBy?: OrderBy;
+	orderBy?: OrderByReadCategories;
 }
 
-interface OrderBy {
+export interface OrderByReadCategories {
 	name?: Order;
 }

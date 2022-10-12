@@ -8,6 +8,7 @@ import { CategoryWhere } from "../../../types/prisma/category/CategoryWhere";
 
 export const readCategories = async (props: PropsReadCategories) => {
 	const { page = 1, perPage = CATEGORIES, name, orderBy } = props;
+	console.log(props);
 
 	if (page <= 0) throw new CustomError({ message: ERR_PAGE, status: 400 });
 

@@ -1,5 +1,5 @@
-import { PropsCreateCategory } from "./admin/CreateCategory";
+import { PropsCreateCategory } from "./CreateCategory";
 
-export interface Update extends PropsCreateCategory {
+export interface PropsUpdateCategory extends PropsCreateCategory {
 	id: number;
 }
