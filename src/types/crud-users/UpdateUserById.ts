@@ -1,6 +1,6 @@
 import { Role } from "@prisma/client";
 
-export interface PropsUpdateUser {
+export interface PropsUpdateUserById {
 	id: number;
 	username?: string;
 	email?: string;

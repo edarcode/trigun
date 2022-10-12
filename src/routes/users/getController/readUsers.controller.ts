@@ -10,7 +10,7 @@ export const readUsersController: Route = async (req, res, next) => {
 			active: validateQueryBool(active),
 			...queries
 		});
-		res.json(users);
+		res.status(200).json(users);
 	} catch (error) {
 		next(error);
 	}
