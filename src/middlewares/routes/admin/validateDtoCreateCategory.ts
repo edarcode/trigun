@@ -1,5 +1,5 @@
-import { Route } from "../../../../types/controllers/Route";
-import { validateStrictDto } from "../../../../utils/common/validateStrictDto";
+import { Route } from "../../../types/controllers/Route";
+import { validateStrictDto } from "../../../utils/common/validateStrictDto";
 
 export const validateDtoCreateCategory: Route = (req, _, next) => {
 	try {

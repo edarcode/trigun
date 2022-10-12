@@ -1,7 +1,7 @@
-import { CustomError } from "../../classes/CustomError";
-import { REQUIRED_ID } from "../../constants/msgs";
-import { prisma } from "../../prisma";
-import { Update } from "../../types/crud-category/UpdateCategory";
+import { CustomError } from "../../../classes/CustomError";
+import { REQUIRED_ID } from "../../../constants/msgs";
+import { prisma } from "../../../prisma";
+import { Update } from "../../../types/crud-category/UpdateCategory";
 
 export const updateCategory = async (props: Update) => {
 	const { id, img, name } = props;

@@ -5,7 +5,7 @@ import {
 	NOT_FOUND
 } from "../../../../../constants/msgs";
 import { Route } from "../../../../../types/controllers/Route";
-import { deleteCategory } from "../../../../../utils/crud-category/deleteCategory";
+import { deleteCategory } from "../../../../../utils/crud-category/admin/deleteCategory";
 
 export const deleteCategoryController: Route = async (req, res, next) => {
 	try {

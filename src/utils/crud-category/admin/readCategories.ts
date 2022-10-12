@@ -1,10 +1,10 @@
-import { CustomError } from "../../classes/CustomError";
-import { ERR_PAGE, NOT_FOUND } from "../../constants/msgs";
-import { CATEGORIES } from "../../constants/perPage";
-import { prisma } from "../../prisma";
-import { PropsReadCategories } from "../../types/crud-category/ReadCategories";
-import { CategorySelect } from "../../types/prisma/category/CategorySelect";
-import { CategoryWhere } from "../../types/prisma/category/CategoryWhere";
+import { CustomError } from "../../../classes/CustomError";
+import { ERR_PAGE, NOT_FOUND } from "../../../constants/msgs";
+import { CATEGORIES } from "../../../constants/perPage";
+import { prisma } from "../../../prisma";
+import { PropsReadCategories } from "../../../types/crud-category/admin/ReadCategories";
+import { CategorySelect } from "../../../types/prisma/category/CategorySelect";
+import { CategoryWhere } from "../../../types/prisma/category/CategoryWhere";
 
 export const readCategories = async (props: PropsReadCategories) => {
 	const { page = 1, perPage = CATEGORIES, name, orderBy } = props;

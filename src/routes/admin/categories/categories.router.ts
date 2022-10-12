@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { validateDtoCreateCategory } from "../../../middlewares/routes/admin/categories/validateDtoCreateCategory";
+import { validateDtoCreateCategory } from "../../../middlewares/routes/admin/validateDtoCreateCategory";
 import { deleteCategoryController } from "./controllers/delete/deleteCategory.controller";
 import { readCategoriesController } from "./controllers/get/readCategories.controller";
 import { createCategoryController } from "./controllers/post/createCategory.controller";

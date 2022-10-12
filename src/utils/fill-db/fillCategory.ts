@@ -1,5 +1,5 @@
 import { categories } from "../../sketch/categories";
-import { createCategory } from "../crud-category/createCategory";
+import { createCategory } from "../crud-category/admin/createCategory";
 
 export const fillCategory = async () => {
 	for (let i = 0; i < categories.length; i++) {
