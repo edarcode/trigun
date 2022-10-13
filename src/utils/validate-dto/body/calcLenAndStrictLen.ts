@@ -1,4 +1,4 @@
-import { Rules } from "../../types/validate-dto/ValidateDto";
+import { Rules } from "../../../types/validate-dto/ValidateDto";
 
 export const calcLenAndStrictLen = (rules: Rules[]) => {
 	const lenRulesNoRequired = rules.filter(

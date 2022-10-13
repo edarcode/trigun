@@ -1,8 +1,8 @@
-import { CustomError } from "../../classes/CustomError";
-import { Rules } from "../../types/validate-dto/ValidateDto";
+import { CustomError } from "../../../classes/CustomError";
+import { Rules } from "../../../types/validate-dto/ValidateDto";
 import { calcTypeof } from "./calcTypeof";
 
-export const validateKeysDto = (dto: object, rules: Rules[]) => {
+export const validateKeys = (dto: object, rules: Rules[]) => {
 	const arrDto = Object.entries(dto);
 	const copyRules = [...rules];
 	const arrKeysDto = [];

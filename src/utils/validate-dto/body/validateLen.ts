@@ -1,10 +1,6 @@
-import { CustomError } from "../../classes/CustomError";
+import { CustomError } from "../../../classes/CustomError";
 
-export const validateLenDto = (
-	dto: object,
-	len: number,
-	strictLen: boolean
-) => {
+export const validateLen = (dto: object, len: number, strictLen: boolean) => {
 	const keysDto = Object.keys(dto);
 	const lenDto = keysDto.length;
 	const ERR_SIZE_DTO = "Tamaño del DTO incorrecto";

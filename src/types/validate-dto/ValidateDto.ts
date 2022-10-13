@@ -1,6 +1,7 @@
 export interface PropsValidateDto {
 	dto: object;
 	rules: Rules[];
+	isQuery?: boolean;
 }
 
 export interface Rules {
