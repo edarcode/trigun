@@ -1,7 +1,7 @@
 import { CustomError } from "../../classes/CustomError";
 import { REQUIRED_CATEGORIES, REQUIRED_IMAGES } from "../../constants/msgs";
 import { prisma } from "../../prisma";
-import { PropsCreateAnime } from "../../types/crud-animes/CreateAnime";
+import { PropsCreateAnime } from "../../types/crud-anime/CreateAnime";
 
 export const createAnime = async (props: PropsCreateAnime) => {
 	const {

@@ -1,7 +1,7 @@
 import { CustomError } from "../../classes/CustomError";
 import { REQUIRED_ID } from "../../constants/msgs";
 import { prisma } from "../../prisma";
-import { UpdateAnime } from "../../types/crud-animes/UpdateAnime";
+import { UpdateAnime } from "../../types/crud-anime/UpdateAnime";
 
 export const updateAnime = async (props: UpdateAnime) => {
 	const {

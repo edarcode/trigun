@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { categories } from "./categories/categories.router";
 export const client = Router();
 
-client.use("/admin", () => null);
+client.use("/categories", categories);

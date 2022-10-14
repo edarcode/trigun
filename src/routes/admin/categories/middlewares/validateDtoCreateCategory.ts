@@ -1,6 +1,6 @@
-import { Route } from "../../../types/controllers/Route";
-import { Rules, TypeData } from "../../../types/validate-dto/ValidateDto";
-import { validateDto } from "../../../utils/validate-dto/validateDto";
+import { Route } from "../../../../types/controllers/Route";
+import { Rules, TypeData } from "../../../../types/validate-dto/ValidateDto";
+import { validateDto } from "../../../../utils/validate-dto/validateDto";
 
 export const validateDtoCreateCategory: Route = (req, _, next) => {
 	try {

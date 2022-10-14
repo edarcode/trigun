@@ -2,7 +2,7 @@ import { CustomError } from "../../classes/CustomError";
 import { NOT_FOUND } from "../../constants/msgs";
 import { ANIMES } from "../../constants/perPage";
 import { prisma } from "../../prisma";
-import { PropsReadAnimes } from "../../types/crud-animes/ReadAnimes";
+import { PropsReadAnimes } from "../../types/crud-anime/ReadAnimes";
 import { AnimeWhere } from "../../types/prisma/anime/AnimeWhere";
 
 export const readAnimes = async (props: PropsReadAnimes) => {
