@@ -8,9 +8,9 @@ export const validateDtoReadCategories: Route = (req, _, next) => {
 			{ key: "name", type: TypeData.string },
 			{ key: "page", type: TypeData.number },
 			{ key: "perPage", type: TypeData.number },
-			{ key: "orderBy", type: TypeData.string }
+			{ key: "orderBy", type: TypeData.object }
 		];
-		validateDto({ dto: req.query, rules, isQuery: true });
+		validateDto({ dto: req.query, isQuery: true, rules });
 		next();
 	} catch (error) {
 		next(error);

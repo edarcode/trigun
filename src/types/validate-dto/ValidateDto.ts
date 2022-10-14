@@ -19,3 +19,9 @@ export enum TypeData {
 	array = "array",
 	object = "object"
 }
+
+export type ParseQuery = (
+	nameQuery: string,
+	valueQuery: string,
+	typeParse: TypeData
+) => boolean | number | string | object;
