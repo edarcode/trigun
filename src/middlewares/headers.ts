@@ -1,4 +1,4 @@
-import { Headers } from "../../types/controllers/Headers";
+import { Headers } from "../types/controllers/Headers";
 
 export const headers: Headers = (_, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*"); // actualizar para que coincida con el dominio desde el que realizará la solicitud

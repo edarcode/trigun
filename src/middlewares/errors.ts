@@ -1,4 +1,4 @@
-import { Error } from "../../types/controllers/Error";
+import { Error } from "../types/controllers/Error";
 
 export const errors: Error = (error, _req, res, _next) => {
 	console.log(error);

@@ -1,6 +1,6 @@
 import { Route } from "../../../../types/controllers/Route";
 import { validateQueryBool } from "../../../../utils/common/validateQueryBool";
-import { readUsers } from "../../../../utils/crud-users/readUsers";
+import { readUsers } from "../../../../utils/crud-user/readUsers";
 
 export const readUsersController: Route = async (req, res, next) => {
 	try {

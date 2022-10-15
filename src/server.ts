@@ -1,8 +1,8 @@
 import cors from "cors";
 import express from "express";
 import morgan from "morgan";
-import { errors } from "./middlewares/server/errors";
-import { headers } from "./middlewares/server/headers";
+import { errors } from "./middlewares/errors";
+import { headers } from "./middlewares/headers";
 import { router } from "./routes/main.router";
 
 export const server = express();

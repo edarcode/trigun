@@ -1,5 +1,5 @@
 import { Route } from "../../../../types/controllers/Route";
-import { readUserById } from "../../../../utils/crud-users/readUserById";
+import { readUserById } from "../../../../utils/crud-user/readUserById";
 
 export const readUserByIdController: Route = async (req, res, next) => {
 	try {

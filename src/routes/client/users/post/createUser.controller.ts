@@ -2,7 +2,7 @@ import { VIRIFY_EMAIL } from "../../../../constants/msgs";
 import { Route } from "../../../../types/controllers/Route";
 import { createToken } from "../../../../utils/auth/createToken";
 import { sendVerificationEmail } from "../../../../utils/auth/sendVerificationEmail";
-import { createUser } from "../../../../utils/crud-users/createUser";
+import { createUser } from "../../../../utils/crud-user/createUser";
 
 export const createUserController: Route = async (req, res, next) => {
 	try {

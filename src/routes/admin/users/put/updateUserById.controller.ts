@@ -2,7 +2,7 @@ import { CustomError } from "../../../../classes/CustomError";
 import { P2025 } from "../../../../constants/dbErrorCodes";
 import { NOT_FOUND, UPDATE_SUCCESS } from "../../../../constants/msgs";
 import { Route } from "../../../../types/controllers/Route";
-import { updateUserById } from "../../../../utils/crud-users/updateUserById";
+import { updateUserById } from "../../../../utils/crud-user/updateUserById";
 
 export const updateUserByIdController: Route = async (req, res, next) => {
 	try {
