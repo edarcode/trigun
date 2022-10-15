@@ -2,7 +2,7 @@ import { CustomError } from "../../../classes/CustomError";
 
 export const parseQueryToObject = (nameQuery: string, valueQuery: string) => {
 	let orderBy: object;
-	const ERR_QUERY = `$query ${nameQuery} incorrecto`;
+	const ERR_QUERY = `query ${nameQuery} incorrecto`;
 	try {
 		orderBy = JSON.parse(valueQuery);
 	} catch (error) {

@@ -5,9 +5,12 @@ import { deleteCategoryController } from "./controllers/delete/deleteCategory.co
 import { createCategoryController } from "./controllers/post/createCategory.controller";
 import { updateCategoryController } from "./controllers/put/updateCategory.controller";
 import { validateDtoCreateCategory } from "./middlewares/validateDtoCreateCategory";
+import { validateDtoUpdateCategory } from "./middlewares/validateDtoUpdateCategory";
 export const categories = Router();
 
 categories.route("/").post(validateDtoCreateCategory, createCategoryController);
 categories.route("/").get(validateDtoReadCategories, readCategoriesController);
-categories.route("/:id").patch(updateCategoryController);
+categories
+	.route("/:id")
+	.put(validateDtoUpdateCategory, updateCategoryController);
 categories.route("/:id").delete(deleteCategoryController);
