@@ -1,5 +1,5 @@
-import { Route } from "../../../types/controllers/Route";
-import { readAnimeById } from "../../../utils/crud-anime/readAnimeById";
+import { Route } from "../../../../../types/controllers/Route";
+import { readAnimeById } from "../../../../../utils/crud-anime/readAnimeById";
 
 export const readAnimeByIdController: Route = async (req, res, next) => {
 	try {

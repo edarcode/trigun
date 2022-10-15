@@ -1,8 +1,8 @@
-import { CustomError } from "../../../classes/CustomError";
-import { P2025 } from "../../../constants/dbErrorCodes";
-import { NOT_FOUND, UPDATE_SUCCESS } from "../../../constants/msgs";
-import { Route } from "../../../types/controllers/Route";
-import { updateAnime } from "../../../utils/crud-anime/updateAnime";
+import { CustomError } from "../../../../../classes/CustomError";
+import { P2025 } from "../../../../../constants/dbErrorCodes";
+import { NOT_FOUND, UPDATE_SUCCESS } from "../../../../../constants/msgs";
+import { Route } from "../../../../../types/controllers/Route";
+import { updateAnime } from "../../../../../utils/crud-anime/updateAnime";
 
 export const updateAnimeController: Route = async (req, res, next) => {
 	try {

@@ -1,11 +1,11 @@
-import { CustomError } from "../../../classes/CustomError";
-import { P2002 } from "../../../constants/dbErrorCodes";
+import { CustomError } from "../../../../../classes/CustomError";
+import { P2002 } from "../../../../../constants/dbErrorCodes";
 import {
 	ALREADY_EXIST_ANIME,
 	ANIME_CREATED_SUCCESS
-} from "../../../constants/msgs";
-import { Route } from "../../../types/controllers/Route";
-import { createAnime } from "../../../utils/crud-anime/createAnime";
+} from "../../../../../constants/msgs";
+import { Route } from "../../../../../types/controllers/Route";
+import { createAnime } from "../../../../../utils/crud-anime/createAnime";
 
 export const createAnimeController: Route = async (req, res, next) => {
 	try {

@@ -1,6 +1,6 @@
-import { DELETE_SUCCESS } from "../../../constants/msgs";
-import { Route } from "../../../types/controllers/Route";
-import { deleteUserById } from "../../../utils/crud-users/deleteUserById";
+import { DELETE_SUCCESS } from "../../../../constants/msgs";
+import { Route } from "../../../../types/controllers/Route";
+import { deleteUserById } from "../../../../utils/crud-users/deleteUserById";
 
 export const deleteUserByIdController: Route = async (req, res, next) => {
 	try {
